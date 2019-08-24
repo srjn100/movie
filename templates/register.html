@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="/register" method="POST">
+
+    <label>Full Name: </label>
+    <input type="text" name="fullName" />
+    <span class="errors">
+        {% if errors["fullName"] != "" %}
+        {{ errors["fullName"] }}
+        {% endif %}
+    </span>
+
+    <label>Email: </label>
+    <input type="text" name="email" />
+    <span class="errors">
+        {% if errors["email"] != "" %}
+        {{ errors["email"] }}
+        {% endif %}
+    </span>
+
+    <label>User Name: </label>
+    <input type="text" name="userName" />
+    <span class="errors">
+        {% if errors["userName"] != "" %}
+        {{ errors["userName"] }}
+        {% endif %}
+    </span>
+
+    <label>Password: </label>
+    <input type="password" name="password" />
+    <span class="errors">
+        {% if errors["password"] != "" %}
+        {{ errors["password"] }}
+        {% endif %}
+
+        {% if errors["user"] != "" %}
+        {{ errors["user"] }}
+        {% endif %}
+    </span>
+
+    <input type="submit" value="Register" />
+</form>
+{% endblock %}

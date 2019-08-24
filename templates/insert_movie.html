@@ -1,0 +1,23 @@
+{%extends 'base.html'%}
+{% block content %}
+
+<form action="/admin/movies/insert" method="POST">
+    <h1>insert movie</h1>
+    <label>Movie Name: </label>
+    <input type="text" name="movieName" />
+    <span class="errors">
+            {% if errors["movieName"] != "" %}
+            {{ errors["movieName"] }}
+            {% endif %}
+    </span>
+
+    <label>Status : </label>
+    <div>
+        <input type="radio" name="isActive" value="1" checked='checked'>Active
+        <input type="radio" name="isActive" value="0">inActive
+    </div>
+    
+    <input type="submit" value="Insert" />
+</form>
+
+{% endblock %}
